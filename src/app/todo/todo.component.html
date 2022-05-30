@@ -1,0 +1,36 @@
+<ion-content>
+
+  <header class="header">Here you may add to To-Do whatever you want!</header>
+  <div class="todo-input">
+    <ion-item lines="none">
+      <ion-label>Your To-Do: </ion-label>
+      <ion-input [(ngModel)]="todoInput"></ion-input>
+    </ion-item>
+    
+    <ion-button (click)="submitTask()">Submit To-Do</ion-button>
+  </div>
+
+  <ion-list *ngIf="list.length; else notYetTodo" >
+    <ion-item *ngFor="let item of list">
+      <ion-checkbox slot="start" (click)="removeTaskWithDelay(item.id)"></ion-checkbox>
+      <ion-label>
+        {{item.label}}
+      </ion-label>
+      <ion-buttons slot="end">
+
+        <ion-button>
+          <ion-icon name="pencil-outline"></ion-icon>
+        </ion-button>
+
+        <ion-button (click)="removeTask(item.id)">
+          <ion-icon name="close-outline"></ion-icon>
+        </ion-button>
+
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #notYetTodo>
+    <div class="empty-todo">You have not created todo yet</div>
+  </ng-template>
+</ion-content>

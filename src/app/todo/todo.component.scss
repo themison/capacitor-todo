@@ -1,0 +1,28 @@
+:host {
+  margin: 40px auto;
+  max-width: 800px;
+  font-size: 24px;
+  padding: 0 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+
+}
+
+.todo-input {
+  display: flex;
+  ion-item {
+    flex: 1;
+  }
+
+  margin-bottom: 40px;
+}
+
+.empty-todo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
