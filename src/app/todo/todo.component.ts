@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Toast } from '@capacitor/toast';
 
 interface ListModel {
   id: string;
@@ -21,10 +22,14 @@ export class TodoComponent implements OnInit {
 
   ngOnInit() {}
 
-  public submitTask(): void {
+  public async submitTask(): Promise<void> {
     if(!this.todoInput) {
       return;
     }
+
+    await Toast.show({
+      text: 'Add success!',
+    });
 
     this.list.push({
       id: this.generateId(),
